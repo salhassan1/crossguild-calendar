@@ -1,0 +1,374 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  background: #08080c;
+  color: white;
+}
+
+/* HEADER */
+
+.hero {
+  padding: 50px 6vw 35px;
+  background:
+      linear-gradient(
+          135deg,
+          #1b101c,
+          #08080c 70%
+      );
+  border-bottom: 1px solid #292932;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  font-size: 12px;
+  letter-spacing: 4px;
+  opacity: .6;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(36px, 5vw, 64px);
+  font-weight: 900;
+}
+
+.subtitle {
+  margin-top: 10px;
+  color: #aaa;
+}
+
+/* CALENDRIER */
+
+main {
+  width: min(1500px, 94vw);
+  margin: 35px auto 70px;
+}
+
+#calendar {
+  background: #111116;
+  padding: 22px;
+  border-radius: 18px;
+  border: 1px solid #292932;
+}
+
+/* FULLCALENDAR */
+
+.fc {
+  --fc-border-color: #292932;
+  --fc-page-bg-color: #111116;
+  --fc-neutral-bg-color: #17171e;
+  --fc-list-event-hover-bg-color: #20202a;
+}
+
+.fc .fc-toolbar-title {
+  font-size: 26px;
+  font-weight: 800;
+}
+
+.fc .fc-button {
+  border: 0;
+  border-radius: 8px;
+  padding: 8px 13px;
+  font-weight: 700;
+}
+
+.fc .fc-button:hover {
+  opacity: .85;
+}
+
+.fc-daygrid-day-number {
+  color: #aaa;
+  font-weight: 700;
+}
+
+/* ÉVÉNEMENT */
+
+.fc-event {
+  border: 0 !important;
+  background: transparent !important;
+  overflow: hidden;
+  border-radius: 10px !important;
+  margin: 3px !important;
+}
+
+.event-card {
+  position: relative;
+
+  min-height: 90px;
+
+  display: flex;
+  align-items: flex-end;
+
+  padding: 12px;
+
+  border-radius: 10px;
+
+  background-size: cover;
+  background-position: center;
+
+  overflow: hidden;
+
+  transition:
+      transform .2s ease,
+      filter .2s ease;
+}
+
+/* IMAGE SANS IMAGE */
+
+.event-card.no-image {
+  background:
+      linear-gradient(
+          135deg,
+          #24242f,
+          #111116
+      );
+}
+
+/* DÉGRADÉ */
+
+.event-card::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+      linear-gradient(
+          to top,
+          rgba(0,0,0,.95),
+          rgba(0,0,0,.2) 70%,
+          rgba(0,0,0,0)
+      );
+}
+
+/* HOVER */
+
+.event-card:hover {
+  transform: scale(1.02);
+  filter: brightness(1.15);
+}
+
+/* CONTENU */
+
+.event-content {
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+}
+
+.event-title {
+  font-size: 14px;
+  font-weight: 900;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.event-time {
+  margin-top: 5px;
+
+  font-size: 12px;
+
+  opacity: .8;
+}
+
+/* ERREUR */
+
+.error {
+  margin-top: 20px;
+
+  color: #ff7070;
+  text-align: center;
+}
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+  main {
+      width: 96vw;
+  }
+
+  #calendar {
+      padding: 10px;
+      border-radius: 12px;
+  }
+
+  .fc .fc-toolbar {
+      flex-direction: column;
+      gap: 10px;
+  }
+
+  .fc .fc-toolbar-title {
+      font-size: 20px;
+  }
+
+  .event-card {
+      min-height: 70px;
+  }
+
+  .event-title {
+      font-size: 12px;
+  }
+
+  /* MODALE */
+
+#event-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+}
+
+.modal-background {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+
+  background: rgba(0, 0, 0, .8);
+
+  backdrop-filter: blur(8px);
+}
+
+.modal-card {
+  width: min(600px, 95vw);
+
+  background: #14141b;
+
+  border-radius: 18px;
+
+  overflow: hidden;
+
+  border: 1px solid #30303a;
+
+  box-shadow:
+      0 30px 100px rgba(0,0,0,.6);
+}
+
+.modal-image {
+  height: 240px;
+
+  background-size: cover;
+  background-position: center;
+}
+
+.modal-content {
+  padding: 25px;
+}
+
+.modal-content h2 {
+  margin-top: 0;
+
+  font-size: 28px;
+}
+
+.modal-date {
+  color: #bbb;
+}
+
+.modal-description {
+  margin-top: 25px;
+
+  line-height: 1.6;
+
+  color: #ccc;
+
+  white-space: pre-line;
+}
+
+.modal-actions {
+  display: flex;
+
+  gap: 12px;
+
+  margin-top: 30px;
+}
+
+.modal-actions button,
+.discord-button {
+  padding: 11px 18px;
+
+  border: 0;
+
+  border-radius: 8px;
+
+  cursor: pointer;
+
+  text-decoration: none;
+
+  font-weight: 700;
+}
+
+.discord-button {
+  background: #5865f2;
+  color: white;
+}
+
+.modal-actions button {
+  background: #292932;
+  color: white;
+}
+
+/* ============================
+   MODALE - AMÉLIORATIONS
+   ============================ */
+
+#event-modal {
+    display: none;
+}
+
+.modal-date {
+    margin-top: 8px;
+}
+
+.modal-location {
+    margin-top: 10px;
+    color: #aaa;
+}
+
+.modal-status {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    background: #292932;
+    color: #ddd;
+}
+
+#close-modal {
+    cursor: pointer;
+}
+
+@media (max-width: 700px) {
+
+    .modal-image {
+        height: 180px;
+    }
+
+    .modal-content h2 {
+        font-size: 22px;
+    }
+
+    .modal-actions {
+        flex-direction: column;
+    }
+
+    .discord-button,
+    #close-modal {
+        width: 100%;
+        text-align: center;
+    }
+}
+}

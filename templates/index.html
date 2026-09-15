@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CrossGuild Events</title>
+  <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.18/index.global.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+
+
+<body>
+    
+    <!-- =========================
+         EN-TÊTE
+    ========================== -->
+
+    <header class="hero">
+    <div>
+      <p class="eyebrow">CrossGuild Events</p>
+      <h1>Programme</h1>
+      <p class="subtitle">Ceci est un apercu des activités des joueurs CrossGuild, que ce soit pour des tournois en équipe ou individuel. Si vous voulez tout suivre ce sera ici.
+        Pour plus de détails, voir juste en dessous du calendrier.</p>
+    </div>
+  </header>
+  
+  <!-- =========================
+         CALENDRIER
+    ========================== -->
+  
+    <main>
+    <section id="calendar"></section>
+    <p id="error" class="error"></p>
+  </main>
+  
+  <!-- =========================
+         MODALE ÉVÉNEMENT
+   ========================== -->
+  <div id="event-modal" style="display: none;">
+
+    <div class="modal-background">
+
+        <div class="modal-card">
+
+            <img class="modal-image" src="" alt="Image de l'événement">
+
+            <div class="modal-content">
+
+                <h2>Nom de l'événement</h2>
+
+                <div class="modal-date"></div>
+
+                <div class="modal-location"></div>
+
+              <div class="modal-status"></div>
+
+                <div class="modal-description"></div>
+
+                <div class="modal-actions">
+
+                    <a
+                        class="discord-button"
+                        href="#"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        🔵 Voir sur Discord
+                    </a>
+
+                    <button
+                        type="button"
+                        id="close-modal"
+                    >
+                        Fermer
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+  </div>
+  
+  <!-- =========================
+         SCRIPTS
+    ========================== -->
+
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.18/index.global.min.js"></script>
+  <script src="/static/js/calendar.js"></script>
+</body>
+</html>
